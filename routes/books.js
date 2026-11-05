@@ -1,7 +1,7 @@
-// import { Router } from "express";
-// import { getDb } from "../db.js";
-// import { verifyToken } from "../middleware/auth.js";
-// import { asyncHandler, toObjectId } from "../utils.js";
+import { Router } from "express";
+import { getDb } from "../db.js";
+import { verifyToken } from "../middleware/auth.js";
+import { asyncHandler, toObjectId } from "../utils.js";
 
 const router = Router();
 const CATEGORIES = ["Fiction", "Science", "History", "Kids", "Others"];
