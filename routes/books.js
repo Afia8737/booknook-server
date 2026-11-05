@@ -24,13 +24,13 @@ router.get("/", asyncHandler(async (req, res) => {
 }));
 
 // GET /books/:id — protected
-// router.get("/:id", verifyToken, asyncHandler(async (req, res) => {
-//   const _id = toObjectId(req.params.id);
-//   if (!_id) return res.status(400).json({ message: "That book link is not valid." });
-//   const book = await (await getDb()).collection("books").findOne({ _id });
-//   if (!book) return res.status(404).json({ message: "We could not find this book." });
-//   res.json(book);
-// }));
+router.get("/:id", verifyToken, asyncHandler(async (req, res) => {
+  const _id = toObjectId(req.params.id);
+  if (!_id) return res.status(400).json({ message: "That book link is not valid." });
+  const book = await (await getDb()).collection("books").findOne({ _id });
+  if (!book) return res.status(404).json({ message: "We could not find this book." });
+  res.json(book);
+}));
 
 // POST /books — protected
 router.post("/", verifyToken, asyncHandler(async (req, res) => {
